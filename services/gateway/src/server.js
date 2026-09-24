@@ -24,11 +24,10 @@ app.get("/health", (req, res) => {
   });
 });
 
-// Proxy routes
 app.use(
   "/api/auth",
   createProxyMiddleware({
-    target: "http://localhost:5001",
+    target: process.env.AUTH_SERVICE_URL,
     changeOrigin: true,
     pathRewrite: {
       "^/api/auth": ""
@@ -39,7 +38,7 @@ app.use(
 app.use(
   "/api/interviews",
   createProxyMiddleware({
-    target: "http://localhost:5002",
+    target: process.env.INTERVIEW_SERVICE_URL,
     changeOrigin: true,
     pathRewrite: {
       "^/api/interviews": ""
@@ -50,7 +49,7 @@ app.use(
 app.use(
   "/api/ai",
   createProxyMiddleware({
-    target: "http://localhost:5003",
+    target: process.env.AI_SERVICE_URL,
     changeOrigin: true,
     pathRewrite: {
       "^/api/ai": ""
