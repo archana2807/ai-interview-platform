@@ -48,7 +48,7 @@ export const createInterview = async (req, res) => {
         experience: interview.experience,
         token: interview.token,
         status: interview.status,
-        interviewLink: `http://localhost:5173/interview/${interview.token}`
+        interviewLink: `${process.env.CLIENT_URL}/interview/${interview.token}`
       }
     });
   } catch (error) {
