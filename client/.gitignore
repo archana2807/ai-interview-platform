@@ -3,5 +3,4 @@ dist
 .env
 .git
 .gitignore
-Dockerfile
 npm-debug.log
